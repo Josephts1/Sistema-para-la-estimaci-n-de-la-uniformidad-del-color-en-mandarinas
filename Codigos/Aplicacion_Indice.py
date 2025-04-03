@@ -1,4 +1,4 @@
-from google.colab import drive
+  from google.colab import drive
 drive.mount('/content/drive')
 
 import os
@@ -45,25 +45,18 @@ for idx,image_rgb in enumerate(images_segmentadas):
   A_mandarina = A[mask] #Va de -128 a 127
   B_mandarina = B[mask] #Va de -128 a 127
 
-  #Cálculo de la desviación estándar
-  std_a=np.std(A_mandarina)
-  std_b=np.std(B_mandarina)
-
-  #Unificación en una matriz los canales a y b. Cada canal es una columna en la matriz
+  #Cálculo del área de la elipse.
   ab_points = np.column_stack((A_mandarina, B_mandarina))
-  #Cálculo de la media en la matriz de canales a y b
   ab_mean = np.mean(ab_points,axis=0)
-  
+
   #Realce de canal a
   imp_a = np.abs(ab_points[:,0])
-  
+
   #Matriz de covarianza y parámetros para la elipse
-  cov = np.cov(ab_points, rowvar=False, aweights=imp_a); #print(cov)
-  #Cálculo de eigenvalores y eigenvectores
-  #Parámetros para la graficación de la elipse
-  vals, vecs = np.linalg.eigh(cov); #print(vals)
+  cov = np.cov(ab_points, rowvar=False, aweights=imp_a)
+  vals, vecs = np.linalg.eigh(cov)
   width, height = np.sqrt(vals)
-  theta = np.degrees(np.arctan2(*vecs[:,0][::-1])); #print(f'Theta en grados: {theta}')
+  theta = np.degrees(np.arctan2(*vecs[:,0][::-1]))
   ellipse = Ellipse(xy=ab_mean, width=width, height=height, angle=theta, edgecolor='red', facecolor='none', lw=2)
 
   #Cálculo del índice
