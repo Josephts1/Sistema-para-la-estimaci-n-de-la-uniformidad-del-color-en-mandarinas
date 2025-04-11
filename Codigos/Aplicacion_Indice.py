@@ -35,7 +35,7 @@ for idx,image_rgb in enumerate(images_segmentadas):
   #Conversión a escala de grises
   gray = cv2.cvtColor(image_rgb.astype(np.float32), cv2.COLOR_RGB2GRAY)
   #Aplicación de una máscara para eliminar del análisis los pixeles equivalentes a cero.
-  mask = gray > 0
+  mask = gray > 0.01
 
   #Separación de canales LAB
   L, A, B = cv2.split(image_lab)
