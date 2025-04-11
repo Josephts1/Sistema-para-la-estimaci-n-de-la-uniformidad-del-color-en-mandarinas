@@ -8,7 +8,7 @@ import numpy as np
 from matplotlib.patches import Ellipse
 
 #Código de segmentación
-folder_path = '/content/drive/MyDrive/Proyecto_de_grado/runs/YOLO11/s/crops_para_histo_CIELAB/50_mandarinas_recortadas'
+folder_path = '/content/drive/MyDrive/Proyecto_de_grado/runs/YOLO11/s/crops_para_histo_CIELAB/crops_50_mandarinas'
 images = [os.path.join(folder_path, img) for img in os.listdir(folder_path) if img.endswith(('.png', '.jpg', '.jpeg'))]
 
 images_segmentadas=[]
