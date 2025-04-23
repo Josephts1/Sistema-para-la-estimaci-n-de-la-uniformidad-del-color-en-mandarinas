@@ -5,8 +5,8 @@ import datetime as dt
 
 capture = cv2.VideoCapture(1,cv2.CAP_DSHOW)
 
-capture.set(cv2.CAP_PROP_FRAME_WIDTH,1280)
-capture.set(cv2.CAP_PROP_FRAME_HEIGHT,720)
+capture.set(cv2.CAP_PROP_FRAME_WIDTH,1920)
+capture.set(cv2.CAP_PROP_FRAME_HEIGHT,1080)
 capture.set(cv2.CAP_PROP_AUTOFOCUS,0)
 #capture.set(cv2.CAP_PROP_FPS,1000)
 capture.set(cv2.CAP_PROP_FOCUS, 0)
